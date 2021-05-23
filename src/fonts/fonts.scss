@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Blogger Sans Bold';
+    src: url('./fonts/blogger-sans/Bloggersansmedium.woff2') format('woff2'), 
+        url('./fonts/blogger-sans/Bloggersansmedium.woff') format('woff'),
+        url('./fonts/blogger-sans/Bloggersansmedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Blogger Sans';
+    src: url('./fonts/blogger-sans/Bloggersanslight.woff2') format('woff2'), 
+        url('./fonts/blogger-sans/Bloggersanslight.woff') format('woff'),
+        url('./fonts/blogger-sans/Bloggersanslight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/roboto/roboto-regular.woff2') format('woff2'), 
+        url('./fonts/roboto/roboto-regular.woff') format('woff'),
+        url('./fonts/roboto/roboto-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('./fonts/roboto/roboto-semi-bold.woff2') format('woff2'), 
+        url('./fonts/roboto/roboto-semi-bold.woff') format('woff'),
+        url('./fonts/roboto/roboto-semi-bold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+// @mixin postFont {
+//     font-family: 'Blogger Sans', sans-serif;
+//     font-weight: 300;
+//     font-style: normal;
+// }
+@mixin headingFont {
+    font-family: 'Blogger Sans Bold', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+@mixin mainFont {
+    font-family: 'Blogger Sans', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}

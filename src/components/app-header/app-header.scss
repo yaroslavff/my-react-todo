@@ -1,0 +1,14 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 18px;
+
+    & h1 {
+        color: $mainTextColor;
+    }
+
+    & h1, & h3 {
+        @include headingFont;
+    }
+};

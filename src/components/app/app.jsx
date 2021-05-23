@@ -1,10 +1,9 @@
 import React, {Component} from "react";
+import AppHeader from "../app-header/app-header.jsx";
 
 const App = ({text}) => (
     <div className="container">
-        <h1>
-            {text}
-        </h1>
+        <AppHeader />
     </div>
 );
 

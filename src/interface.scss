@@ -1,0 +1,38 @@
+
+// colors vars
+
+$bcgColor: #fcecdd;
+$borderColor: #ffc288;
+$activeColor: #ff6701;
+$textColor: #3f3f3fe0;
+$mainTextColor: #141414f5;
+
+// style
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bcgColor;
+  color: $textColor;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+input,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
