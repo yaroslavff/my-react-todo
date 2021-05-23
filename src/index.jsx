@@ -1,12 +1,6 @@
 import React from "react";
 import {render} from "react-dom";
+import "./index.scss";
+import App from "./components/app/app.jsx";
 
-const App = () => (
-    <div className="container">
-        <h1>
-            Hello World!
-        </h1>
-    </div>
-);
-
-render(<App/>, document.querySelector("#root"));
+render(<App text="Good Byu"/>, document.getElementById("root"));

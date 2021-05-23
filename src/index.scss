@@ -1,1 +1,9 @@
 @import '~normalize.css';
+@import './normal.scss';
+@import './components/app/app.scss';
+@import './components/app-header/app-header.scss';
+@import './components/post-list/post-list.scss';
+@import './components/post-list-item/post-list-item.scss';
+@import './components/post-add-form/post-add-form.scss';
+@import './components/post-status-filter/post-status-filter.scss';
+@import './components/search-panel/search-panel.scss';
