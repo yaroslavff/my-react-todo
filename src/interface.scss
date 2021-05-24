@@ -2,9 +2,9 @@
 // colors vars
 
 $bcgColor: #fcecdd;
-$borderColor: #ffc288;
-$activeColor: #ff6701;
-$textColor: #3f3f3fe0;
+$borderColor: #ff6701;
+$activeColor: #ffc288;
+$textColor: #474747e0;
 $mainTextColor: #141414f5;
 
 // style
@@ -18,6 +18,7 @@ $mainTextColor: #141414f5;
 body {
   background-color: $bcgColor;
   color: $textColor;
+  @include mainFont;
 }
 
 body,
