@@ -26,17 +26,17 @@
 .search-btn {
     cursor: pointer;
     background: $bcgColor;
-    border: 1px solid $textColor;
+    border: 1px solid $borderColor;
     &:hover {
         transition: 0.2s ease-in-out;
-        border: 3px solid $borderColor;
+        border: 3px solid $hoverColor;
     }
 
 }
 
 .search-btn_active {
     transition: 0.2s ease-in-out;
-    border: 3px solid $borderColor;
-    background: $borderColor;
-    color: whitesmoke;
+    border: 3px solid $hoverColor;
+    background: $hoverColor;
+    color: white;
 }

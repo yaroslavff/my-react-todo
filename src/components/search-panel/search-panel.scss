@@ -1,12 +1,12 @@
 .search-panel {
-    background: $bcgColor;
+    background: $postColor;
     flex-grow: 10;
-    border: 1px solid $textColor;
+    border: 1px solid $borderColor;
     border-radius: 4px;
     padding: 8px;
     margin-right: 5px;
     &:focus {
-        border: 3px solid $borderColor;
+        border: 3px solid $hoverColor;
         outline: 3px solid $activeColor;
         outline-offset: -5px;
         transition: 0.2s ease-in-out;
@@ -16,7 +16,7 @@
     
     &:hover {
         transition: 0.2s ease-in-out;
-        border: 3px solid $borderColor;
+        border: 3px solid $hoverColor;
         padding: 6px;
     }
 
