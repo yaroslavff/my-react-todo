@@ -1,0 +1,36 @@
+.post-add {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    
+    &__panel {
+        background: $postColor;
+        flex-grow: 10;
+    }
+
+    &__btn {
+        cursor: pointer;
+        flex-grow: 1;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border: 3px solid $activeColor;
+        background: $activeColor;
+        color: white;
+
+        &:active {
+            transition: 0.2s;
+            background: $hoverColor;
+            border: 3px solid $hoverColor;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &-delete {
+            flex-grow: 1;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+}

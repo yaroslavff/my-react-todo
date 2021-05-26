@@ -3,9 +3,9 @@ import React from "react";
 const PostStatusFilter = () => {
     return (
         <div className="btn-group">
-            <button className="btn-group__all search-btn search-btn_active">Все</button>
-            <button className="btn-group__favourite search-btn">Важные</button>
-            <button className="btn-group__completed search-btn">Выполненные</button>
+            <button type="button" className="btn-group__all btn-group_active js-btn-search">Все</button>
+            <button type="button" className="btn-group__favourite btn js-btn-search">Важные</button>
+            <button type="button" className="btn-group__completed btn js-btn-search">Выполненные</button>
         </div>
     );
 };
