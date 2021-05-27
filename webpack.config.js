@@ -22,7 +22,7 @@ const optimization = () => {
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-        main: ['@babel/polyfill', './index.jsx']
+        main: ['@babel/polyfill', './index.js']
     },
 
     output: {
@@ -62,22 +62,22 @@ module.exports = {
     module: {
         rules: [
             // JavaScript
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     loader: 'babel-loader'
+            // },
 
             // TypeScript
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
+            // {
+            //     test: /\.ts$/,
+            //     exclude: /node_modules/,
+            //     loader: 'babel-loader'
+            // },
 
             // React
             {
-                test: /\.jsx$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },

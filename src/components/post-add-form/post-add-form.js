@@ -2,7 +2,7 @@ import React from "react";
 
 const PostAddForm = () => {
     return (
-        <div className="post-add">
+        <form className="post-add">
             <input
             type="text"
             placeholder="О чем сегодня думаете?"
@@ -19,7 +19,7 @@ const PostAddForm = () => {
                     Удалить все
                 </button>
             </div>
-        </div>
+        </form>
     );
 };
 

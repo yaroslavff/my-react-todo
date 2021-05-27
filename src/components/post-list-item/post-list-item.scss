@@ -1,15 +1,25 @@
+
+@keyframes select {
+    from {opacity: 0;}
+    50% {opacity: 0.5;}
+    to {opacity: 1;}
+}
+
 .list {
     &-item {
         list-style-type: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-top: 10px;
-        padding: 20px 50px 20px 15px;
-        border: 1px solid $borderColor;
-        border-radius: 4px;
-        background: $postColor;
-
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px 20px 15px;
+            border: 1px solid $borderColor;
+            border-radius: 4px;
+            background: $postColor;
+        
+        }
+    
         &:first-child {
             margin-top: 0;
         }
@@ -18,12 +28,68 @@
             @include mainFont;
             font-size: 22px;
             margin-left: 30px;
+
+            &_important {
+                @include headingFont;
+                transition: 0.2s;
+            }
+            &_completed {
+                text-decoration: line-through;
+                color: $borderColor;
+                transition: 0.2s;
+            }
         }
     
         &__favourite {
             margin-left: auto;
         }
-    
+
+        &__complete {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            outline: none;
+            border: 2px solid $textColor;
+            border-radius: 4px;
+            position: relative;
+            background: transparent;
+            transition: 0.2s;
+            &::after {
+                content: '';
+                position: absolute;
+                background: transparent;
+                top: 6px;
+                left: 4px;
+                width: 2px;
+                height: 6px;
+                transform: rotate(-45deg);
+                transition: 0.2s;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                background: transparent;
+                top: 6px;
+                left: 4px;
+                width: 12px;
+                height: 2px;
+                transform: rotate(135deg);
+                transition: 0.1s;
+            }
+        
+            &_active {
+                border: 2px solid $activeColor;
+                transition: 0.2s;
+                &::after {
+                    background: $activeColor;
+                    animation: select 0.2s linear;
+                }
+                &::before {
+                    background: $activeColor;
+                    animation: select 0.3s linear;
+                }
+            }
+        }
     }
 
     &-button {
@@ -35,14 +101,12 @@
             color: $textColor;
         }
 
-        & > .fa-star_active {
+        & > .fa-star {
             transition: 0.2s;
-            color: gold;
-        }
-
-        & > .fa-check_active {
-            transition: 0.2s;
-            color: #1eae98;
+            &_active {
+                color: gold;
+                transform: scale(1.1);
+            }
         }
 
         & > .fa-times {
