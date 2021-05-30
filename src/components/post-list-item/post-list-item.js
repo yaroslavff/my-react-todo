@@ -5,7 +5,8 @@ export default class PostListItem extends Component {
         super(props);
         this.state = {
             important: false,
-            completed: false
+            completed: false,
+
         };
         this.onImportant = this.onImportant.bind(this);
         this.onCompleted = this.onCompleted.bind(this);
@@ -25,7 +26,7 @@ export default class PostListItem extends Component {
 
     render() {
 
-        const {label} = this.props;
+        const {label, onDelete} = this.props;
         const {important, completed} = this.state;
         
         let starClasses = "fa fa-star fa-fw";
@@ -43,15 +44,20 @@ export default class PostListItem extends Component {
         return (
             <div className="list-item__wrapper">
                 <button 
-                className={checkClasses}
-                onClick={this.onCompleted}/>
+                    className={checkClasses}
+                    onClick={this.onCompleted}
+                />
                 <span className={textClasses}>{label}</span>
                 <button 
-                className="list-item__favourite list-button"
-                onClick={this.onImportant}>
+                    className="list-item__favourite list-button"
+                    onClick={this.onImportant}
+                >
                     <i className={starClasses}></i>
                 </button>
-                <button className="list-item__cross list-button">
+                <button 
+                    className="list-item__cross list-button"
+                    onClick={onDelete}
+                >
                     <i className="fa fa-times fa-fw"></i>
                 </button>
             </div>

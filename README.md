@@ -1,1 +1,3 @@
 ## React Todo
+
+### npm i

@@ -1,25 +1,28 @@
 import React from "react";
 
-const PostAddForm = () => {
+const PostAddForm = (props) => {
+
+    const {deleteAll, createNewPost} = props;
+
     return (
-        <form className="post-add">
+        <div className="post-add">
             <input
             type="text"
             placeholder="О чем сегодня думаете?"
             className="post-add__panel panel"/>
             <div className="btn-group">
                 <button
-                type="submit"
-                className="post-add__btn">
-                    Добавить
-                </button>
+                    type="submit"
+                    className="post-add__btn"
+                    onClick={() => createNewPost("New Post!")}
+                >Добавить</button>
                 <button
-                type="button"
-                className="post-add__btn-delete btn">
-                    Удалить все
-                </button>
+                    type="button"
+                    className="post-add__btn-delete btn"
+                    onClick={() => deleteAll()}
+                >Удалить все</button>
             </div>
-        </form>
+        </div>
     );
 };
 

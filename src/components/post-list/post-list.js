@@ -2,14 +2,28 @@ import React from "react";
 
 import PostListItem from "../post-list-item/post-list-item";
 
-const PostList = ({posts}) => {
+const PostList = (props) => {
+
+    const {posts, onDelete} = props;
+
+    const isEmpty = (object) => {
+        for (let key in object) {
+            if(key == "label") {
+                return true;
+            }
+        }
+        return false;
+    };
 
     const element = posts.map((item) => {
-        return (
-            <li className="list-item" key={item.id} data-list={item.id}>
-                <PostListItem label={item.label}/>
-            </li>
-        );
+        if (typeof item === "object" && isEmpty(item)) {
+            const {label, id} = item;
+            return (
+                <li className="list-item" key={id} data-list={id}>
+                    <PostListItem label={label} onDelete={() => onDelete(id)}/>
+                </li>
+            );
+        }
     });
 
     return (
