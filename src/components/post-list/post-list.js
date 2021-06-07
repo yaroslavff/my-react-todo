@@ -4,7 +4,7 @@ import PostListItem from "../post-list-item/post-list-item";
 
 const PostList = (props) => {
 
-    const {posts, onDelete} = props;
+    const {posts, onDelete, onImportant, onCompleted} = props;
 
     const isEmpty = (object) => {
         for (let key in object) {
@@ -17,10 +17,14 @@ const PostList = (props) => {
 
     const element = posts.map((item) => {
         if (typeof item === "object" && isEmpty(item)) {
-            const {label, id} = item;
+            const {id, ...itemProps} = item;
             return (
                 <li className="list-item" key={id} data-list={id}>
-                    <PostListItem label={label} onDelete={() => onDelete(id)}/>
+                    <PostListItem 
+                        {...itemProps}
+                        onDelete={() => onDelete(id)}
+                        onImportant={() => onImportant(id)}
+                        onCompleted={() => onCompleted(id)}/>
                 </li>
             );
         }

@@ -3,31 +3,11 @@ import React, {Component} from "react";
 export default class PostListItem extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            important: false,
-            completed: false,
-
-        };
-        this.onImportant = this.onImportant.bind(this);
-        this.onCompleted = this.onCompleted.bind(this);
-    }
-
-    onImportant() {
-        this.setState((state) => ({
-            important: !state.important
-        }));
-    }
-
-    onCompleted() {
-        this.setState((state) => ({
-            completed: !state.completed
-        }));
     }
 
     render() {
 
-        const {label, onDelete} = this.props;
-        const {important, completed} = this.state;
+        const {label, important, completed, onDelete, onCompleted, onImportant} = this.props;
         
         let starClasses = "fa fa-star fa-fw";
         let checkClasses = "list-item__complete";
@@ -45,12 +25,12 @@ export default class PostListItem extends Component {
             <div className="list-item__wrapper">
                 <button 
                     className={checkClasses}
-                    onClick={this.onCompleted}
+                    onClick={onCompleted}
                 />
                 <span className={textClasses}>{label}</span>
                 <button 
                     className="list-item__favourite list-button"
-                    onClick={this.onImportant}
+                    onClick={onImportant}
                 >
                     <i className={starClasses}></i>
                 </button>

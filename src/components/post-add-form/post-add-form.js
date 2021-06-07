@@ -1,29 +1,52 @@
-import React from "react";
+import React, {Component} from "react";
 
-const PostAddForm = (props) => {
+export default class PostAddForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ""
+        }
+    }
 
-    const {deleteAll, createNewPost} = props;
+    onValueChange = (e) => {
+        this.setState(({text}) => ({
+            text: e.target.value
+        }));
+    }
 
-    return (
-        <div className="post-add">
-            <input
-            type="text"
-            placeholder="О чем сегодня думаете?"
-            className="post-add__panel panel"/>
-            <div className="btn-group">
-                <button
-                    type="submit"
-                    className="post-add__btn"
-                    onClick={() => createNewPost("New Post!")}
-                >Добавить</button>
-                <button
-                    type="button"
-                    className="post-add__btn-delete btn"
-                    onClick={() => deleteAll()}
-                >Удалить все</button>
-            </div>
-        </div>
-    );
+    render() {
+
+        const {deleteAll, createNewPost} = this.props;
+        const {text} = this.state;
+
+        return (
+            <form
+                className="post-add"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    createNewPost(text)
+                    this.setState({
+                        text: ""
+                    })
+                }}>
+                <input
+                type="text"
+                placeholder="О чем сегодня думаете?"
+                className="post-add__panel panel"
+                onChange={this.onValueChange}
+                value={text}/>
+                <div className="btn-group">
+                    <button
+                        type="submit"
+                        className="post-add__btn">
+                        Добавить</button>
+                    <button
+                        type="button"
+                        className="post-add__btn-delete btn"
+                        onClick={() => deleteAll()}>
+                        Удалить все</button>
+                </div>
+            </form>
+        );
+    }
 };
-
-export default PostAddForm;
