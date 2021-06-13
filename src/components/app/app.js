@@ -4,6 +4,7 @@ import SearchPanel from "../search-panel/search-panel";
 import PostStatusFilter from "../post-status-filter/post-status-filter";
 import PostList from "../post-list/post-list";
 import PostAddForm from "../post-add-form/post-add-form";
+import Burger from "../burger-menu/burger-menu";
 
 export default class App extends Component {
 
@@ -16,7 +17,8 @@ export default class App extends Component {
                 {label: "The End...", important: false, completed: false, id: this.createRandomData()}
             ],
             filter: "",
-            search: ""
+            search: "",
+            burger: false
         };
     }
 
@@ -120,9 +122,17 @@ export default class App extends Component {
         }));
     }
 
+    toggleBurgerMenu = () => {
+        if (!this.state.burger) {
+            this.setState({burger: true});
+        } else {
+            this.setState({burger: false});
+        }
+    }
+
     render() {
 
-        const {info, search, filter} = this.state;
+        const {info, search, filter, burger} = this.state;
 
         let allPostsCounter, importantCounter, completedCounter;
 
@@ -132,29 +142,46 @@ export default class App extends Component {
 
         let visiblePosts = this.postFilter(this.goSearchPosts(info, search), filter)
 
+        const asideSearch = burger ? <Burger toggleBurgerMenu={this.toggleBurgerMenu} /> : <SearchView toggleBurgerMenu={this.toggleBurgerMenu} updateSearch={this.updateSearch} updateFilter={this.updateFilter}/>;
+
+
         return (
-            <div className="app">
-                <AppHeader 
-                    all={allPostsCounter}
-                    important={importantCounter}
-                    completed={completedCounter}/>
+            <>
                 <div className="search-wrapper">
-                    <SearchPanel
-                        updateSearch={this.updateSearch}/>
-                    <PostStatusFilter 
-                        updateFilter={this.updateFilter}/>
+                    {asideSearch}
                 </div>
-                <PostList
-                    posts={visiblePosts}
-                    onDelete={this.deleteItem}
-                    onImportant={this.onToggleImportant}
-                    onCompleted={this.onToggleCompleted}
-                />
-                <PostAddForm
-                    deleteAll={this.deleteAll}
-                    createNewPost={this.addPost}
-                />
-            </div>
+                <div className="app">
+                    <AppHeader 
+                        all={allPostsCounter}
+                        important={importantCounter}
+                        completed={completedCounter}/>
+                    <PostAddForm
+                        deleteAll={this.deleteAll}
+                        createNewPost={this.addPost}
+                    />
+                    <PostList
+                        posts={visiblePosts}
+                        onDelete={this.deleteItem}
+                        onImportant={this.onToggleImportant}
+                        onCompleted={this.onToggleCompleted}
+                    />
+                </div>
+            </>
         );
     }
 };
+
+const SearchView = (props) => {
+
+    const {toggleBurgerMenu, updateSearch, updateFilter} = props;
+
+    return (
+        <div className="search-wrapper__content">
+            <SearchPanel
+                burgerMenu={toggleBurgerMenu}
+                updateSearch={updateSearch}/>
+            <PostStatusFilter 
+                updateFilter={updateFilter}/>
+        </div>
+    )
+}

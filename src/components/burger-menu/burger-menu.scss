@@ -1,0 +1,14 @@
+.menu-burger {
+    cursor: pointer;
+    padding-top: 30px;
+    padding-left: 10px;
+    transition: 2s;
+    width: 90px;
+
+    &__item {
+        height: 10px;
+        background: $activeColor;
+        margin-top: 10px;
+        transition: 2s;
+    }
+}

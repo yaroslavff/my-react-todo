@@ -12,13 +12,21 @@ class SearchPanel extends Component {
     }
 
     render() {
+
+        const {burgerMenu} = this.props;
+
         return (
-            <input
-                className="search-wrapper__panel panel"
-                type="text"
-                placeholder="Поиск по записям"
-                onChange={this.changeSearchParams}
-            />
+            <>
+                <button 
+                    className="search-wrapper__close"
+                    onClick={burgerMenu}/>
+                <span className="btn-header">Поиск:</span>
+                <input
+                    className="search-wrapper__panel panel"
+                    type="text"
+                    placeholder="Что будем искать?"
+                    onChange={this.changeSearchParams} />
+            </>
         );
     }
 };

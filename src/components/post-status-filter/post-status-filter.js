@@ -25,7 +25,9 @@ export default class PostStatusFilter extends Component{
     render() {
 
         return (
-            <div className="btn-group">
+            <>
+            <span className="btn-header">Категории:</span>
+            <div className="btn-group btn-group__search">
                 <button
                     type="button"
                     value="all"
@@ -45,6 +47,7 @@ export default class PostStatusFilter extends Component{
                     onClick={this.updateStatus}
                 >Выполненные</button>
             </div>
+            </>
         );
     }
 }
